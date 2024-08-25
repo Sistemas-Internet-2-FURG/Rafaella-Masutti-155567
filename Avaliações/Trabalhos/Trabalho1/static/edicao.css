@@ -1,0 +1,212 @@
+body {
+    background-color: #e9e0e0;
+    background-image: url('/static/imagens/fundo.jpg');
+    background-size: cover; 
+    background-attachment: fixed;
+    background-position: center;
+    background-blend-mode: multiply;
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    margin: 0;
+    padding-top: 40px;
+    height: 100vh;
+    
+}
+
+/* Estilo da barra de navegação */
+.top-bar {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-sizing: border-box; /* Inclui padding e border na largura total */
+}
+
+/* Estilo do texto de boas-vindas e da mensagem de cookies */
+.welcome-text {
+    font-size: 16px;
+    margin-right: 10px;
+    position: absolute; /* Posiciona o texto no centro da barra */
+    left: 50%; /* Posiciona o texto 50% a partir da esquerda */
+    transform: translateX(-50%);
+}
+
+.cookie-notice {
+    font-size: 16px;
+    margin-right: auto;
+}
+
+/* Estilo do botão de sair */
+.exit-btn {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.exit-btn:hover {
+    background-color: #ff1a1a;
+}
+/* Estilo dos campos do formulário */
+.form-inputs {
+    width: 100%;
+    padding: 10px 10px 10px 5px;
+    margin: 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 20px;
+    outline: none;
+}
+
+
+.label-float{
+    position: relative;
+    padding-top: 3%;
+    margin-top: 5%;
+    margin-bottom: 3%;
+  }
+  
+  .label-float input{
+    width: 100%;
+    padding: 1%;
+    padding-bottom: 0.5%;
+    padding-top: 2%;
+    display: inline-block;
+    border: 0;
+    border-bottom: 2px solid  #000000;
+    background-color: transparent;
+    outline: none;
+    transition: all .3s ease-out;
+    border-radius: 0;
+  }
+  
+  .label-float select{
+    width: 100%;
+    padding: 5px 5px;
+    display: inline-block;
+    border: 0;
+    border-bottom: 2px solid  #000000;
+    background-color: transparent;
+    outline: none;
+    transition: all .3s ease-out;
+    border-radius: 0;
+  }
+  
+  .label-float input:focus{
+    border-bottom: 2px solid #000000;
+  }
+  
+  .label-float label{
+    color: #000000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 5%;
+    transition: all .3s ease-out;
+  }
+  
+  .label-float input:focus + label,
+  .label-float input:valid + label{
+    margin-top: 0;
+    color: #000000
+  }
+
+
+/* Estilo do botão de enviar */
+.new-animal-btn{
+    width: 100%;
+    padding: 10px 20px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: none;
+    box-sizing: border-box;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.new-animal-btn:hover {
+    background-color: #45a049;
+}
+
+/* Estilo do botão de enviar */
+.voltar-btn{
+    width: 100%;
+    padding: 10px 20px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: none;
+    box-sizing: border-box;
+    font-size: 16px;
+    background-color: #fb2828;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.voltar-btn:hover {
+    background-color: #ff0000;
+}
+
+.custom-file-upload2 {
+    display: inline-block;
+    position: absolute;
+    left: 40%;
+    font-size: 16px;
+    color: white;
+    background-color: #2c4193;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.custom-file-upload2:hover {
+    background-color: #0725ae;
+}
+
+/* Oculta o elemento input real */
+.custom-file-upload2 input[type="file"] {
+    display: none;
+}
+
+/* Estilo do rótulo que simula o botão de upload */
+.custom-file-upload2 label {
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.caixa {
+    background-color: rgba(255, 255, 157, 0.9);
+    padding-top: 3%;
+    padding-right: 3%;
+    padding-left: 3%;
+    padding-bottom: 4%;
+    border-radius: 6%;
+    width: 35%;
+    box-shadow: 0px 0px 3px 1px #000000;
+    text-align: center;
+}
+
+.card-img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+}

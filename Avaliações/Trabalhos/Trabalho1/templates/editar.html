@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='edicao.css')}}">
+		<meta charset="UTF-8">
+		<title>Editar</title>
+	</head>
+	<body>
+		<div class="top-bar">
+			<span class="cookie-notice">Esse site utiliza cookies! <i class="fa-solid fa-cookie-bite"></i></span>
+			<span class="welcome-text"><h2>Olá {{nome}}! <i class="fa-solid fa-face-smile-beam"></i></h2></span>
+				<br>
+			<form action="/sair" method='GET'>
+				<button type='submit' class="exit-btn"><i class="fa-solid fa-person-walking-arrow-right"></i></button>
+			</form>
+		</div>
+		<br>
+		<br>
+		<br>
+		<div class="container">
+			<div class="caixa">
+				<br>
+				<h1>Editar</h1>
+				<br>
+				<br>
+				<img id="imgPreview" class="card-img" src="/{{editado[1]}}" alt="Imagem Inicial">
+				<form action="/inicio/editar/{{editado[0]}}" method='POST' enctype="multipart/form-data" onsubmit="confirmarAlteracoes(event);">
+					<div class="custom-file-upload2">
+						<label for='foto'>Clique aqui se quiser alterar a foto &nbsp;<i class="fa-solid fa-file-image"></i></label>
+						<input type='file' id='foto' name='foto' accept="image/" class="form-inputs" onchange="previewImage(event)">
+					</div>
+					<br>
+					<br>
+					<div class="label-float">	
+						<input type='text' id='nome' name='nome' required value="{{editado[2]}}" class="form-inputs">
+						<label for='nome'>Digite o nome do animal</label>
+					</div>
+					<div class="label-float">	
+						<input type='text' id='animal' name='animal' required value="{{editado[3]}}" class="form-inputs">
+						<label for='animal'>Digite a espécie do animal</label>
+					</div>
+					<br>
+					<br>
+					<br>
+					<button type='submit' class="new-animal-btn" >Salvar alterações</button>
+					<br>
+					<br>
+				</form>
+				<button class="voltar-btn" onclick="window.location.href='/inicio';">Voltar</button>
+			</div>
+		</div>
+		<br>
+		<br>
+		<script src="https://kit.fontawesome.com/d03daeff12.js" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+		<script>
+			function confirmarAlteracoes(event){
+				event.preventDefault();
+				const form = event.target;
+				return Swal.fire({
+						title: "Deseja salvar as alterações?",
+						showDenyButton: true,
+						showCancelButton: true,
+						confirmButtonText: "Salvar",
+						denyButtonText: `Não salvar`,
+						textButtonText: 'Cancelar'
+						}).then((result) => {
+						/* Read more about isConfirmed, isDenied below */
+						if (result.isConfirmed) {
+							Swal.fire("Salvo!", "", "success").then(()=>{
+								form.submit();
+							});
+						} else if (result.isDenied) {
+							Swal.fire("Mudanças não salvas", "", "info").then(()=>{
+								window.location.href = "/inicio";
+							});
+						}
+						});
+			}
+		</script>
+		<script>
+			function previewImage(event) {
+				var reader = new FileReader();
+				var imageField = document.getElementById("imgPreview");
+		
+				reader.onload = function() {
+					if (reader.readyState == 2) {
+						imageField.src = reader.result;
+					}
+				}
+		
+				reader.readAsDataURL(event.target.files[0]);
+			}
+		</script>
+	</body>
+</html>
