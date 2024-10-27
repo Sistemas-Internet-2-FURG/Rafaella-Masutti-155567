@@ -1,0 +1,106 @@
+body {
+    background-color: #e9e0e0;
+    background-image: url('/static/imagens/fundo.jpg');
+    background-size: cover; 
+    background-attachment: fixed;
+    background-position: center;
+    background-blend-mode: multiply;
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    margin: 0;
+    padding-top: 3%;
+    height: 100vh;
+    
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.caixa {
+    background-color: rgba(252, 252, 69, 0.9);
+    padding-top: 5%;
+    padding-right: 3%;
+    padding-left: 3%;
+    padding-bottom: 5%;
+    border-radius: 6%;
+    width: 28%;
+    box-shadow: 0px 0px 3px 1px #000000;
+    text-align: center;
+}
+
+.label-float{
+    position: relative;
+    padding-top: 5%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+  
+.label-float input{
+    width: 100%;
+    padding: 2%;
+    display: inline-block;
+    border: 0;
+    border-bottom: 2px solid  #000000;
+    background-color: transparent;
+    outline: none;
+    transition: all .3s ease-out;
+    border-radius: 0;
+}
+
+.label-float select{
+    width: 100%;
+    padding: 5px 5px;
+    display: inline-block;
+    border: 0;
+    border-bottom: 2px solid  #000000;
+    background-color: transparent;
+    outline: none;
+    transition: all .3s ease-out;
+    border-radius: 0;
+}
+
+.label-float input:focus{
+    border-bottom: 2px solid #000000;
+}
+
+.label-float label{
+    color: #000000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 5%;
+    transition: all .3s ease-out;
+}
+
+.label-float input:focus + label,
+.label-float input:valid + label{
+    margin-top: 0;
+    color: #000000
+}
+
+.login-btn{
+    width: 100%;
+    padding: 10px 20px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: none;
+    box-sizing: border-box;
+    font-size: 16px;
+    background-color: #b438ea;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+#msgError{
+    text-align: center;
+    color:red;
+    background-color: #ffbbbb;
+    padding: 3%;
+    border-radius: 4px;
+  }
+.erro{
+    color:red;
+    text-align: justify;
+  }

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script>
+			function confirmarSenha() {
+				var senha = document.getElementById('senha').value;
+				var confirma = document.getElementById('confirma').value;
+				var naoCoincide = document.getElementById('naocoincidem')
+				if (senha != confirma) {
+					naoCoincide.textContent = 'Senhas não coinscidem.';
+				} else {
+					naoCoincide.textContent = '';
+				}
+			}
+		</script>
+		<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='autenticacao.css')}}">
+		<meta charset="UTF-8">
+		<title>Cadastro</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="caixa">
+				<h1>Cadastro</h1>
+				{% if msgErro %}
+					<div id="msgError">{{msgErro}}</div>
+				{% endif %}
+				<form action="/cadastro" method='POST'>
+					<div class="label-float">
+						<input type='text' id='usuario' name='usuario' value="{{dadosForm.get('usuario', '')}}" required>
+						<label for='usuario'>Digite seu nome de usuário</label>
+					</div>
+					<div class="label-float">
+						<input type='text' id='nome' name='nome' value="{{dadosForm.get('nome', '')}}" required>
+						<label for='nome'>Digite seu nome</label>
+					</div>
+					<div class="label-float">
+						<input type='password' id='senha' name='senha' required>
+						<label for='senha'>Digite sua senha</label>
+					</div>
+					<div id="naocoincidem" class="erro"></div>
+					<div class="label-float">
+						<input type='password' id='confirma' name='confirma' required onkeyup="confirmarSenha()" onchange="confirmarSenha()">
+						<label for='confirma'>Confirmar senha </label>
+					</div>
+						<button type='submit' class="login-btn">Cadastrar</button>
+				</form>
+				<h1><i class="fa-solid fa-crow"></i><i class="fa-solid fa-cat"></i><i class="fa-solid fa-dog"></i><i class="fa-solid fa-hippo"></i><i class="fa-solid fa-fish-fins"></i><i class="fa-solid fa-otter"></i></h1>
+				<p> Já tem uma conta?
+					<br>
+					<a href="login"> Entrar </a>
+				</p>
+			</div>
+		</div>
+		<br>
+		<script src="https://kit.fontawesome.com/d03daeff12.js" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+		<script>
+			document.addEventListener('DOMContentLoaded', function() {
+				{% if sucesso %}
+				Swal.fire({
+					title: "Sucesso!",
+					text: "Cadastro realizado com sucesso",
+					icon: "success",
+					showConfirmButton: false,
+  					timer: 2000
+					}).then(() => {
+							window.location.href = "/login";
+					});
+				{% endif %}
+			});
+		</script>
+	</body>
+</html>
+
